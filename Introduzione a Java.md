@@ -1,5 +1,5 @@
 ---
-share: "true"
+share:
 ---
 
 # Comandi e Nozioni di Base
@@ -71,6 +71,34 @@ OUTPUT:
 1    //5 % 2 = 1 (Perché 5= 2*2 + 1)
 6    // 5 + 1 = 6
 4    // 5 - 1 = 4
+```
+
+Per tutte le varie operazioni si può aggiungere un "*=*", producendo per esempio:
+```
+...
+x+=5; //è la stessa cosa di x= x + 5;
+...
+```
+
+Gli operatori di comparazione sono invece:
+1. == uguale a,
+2. != diverso da,
+3. > maggiore di,
+4. < minore di,
+5. >= maggiore o uguale a,
+6. <= minore o uguale a.
+Mentre quelli logici:
+7. && AND
+8. || OR
+9. ! NOT
+Si usano tra le condizioni per legarle tra loro, ad esempio:
+```
+...
+if ((x<5) && (x>0)){
+	//something
+	//something
+}
+...
 ```
 
 -----
@@ -151,6 +179,60 @@ Alternativamente il compilatore potrebbe lamentarsi con un *Warning* dicendo che
 I principali tipi di variabili sono:
 1. String, contiene del testo, come "Hello!";
 2. int, contiene dei numeri interi, anche negativi;
-3. float, contiene numeri con la virgola come 19.99, anche negativi;
-4. char, contiene caratteri singolo, per esempio 'a';
-5. boolean, contiene un valore binario che può essere **solo** vero o falso;
+3. long, contiene numeri interi fino a 19 cifre
+4. float, contiene numeri con la virgola come 19.99f, anche negativi (i float terminano con la f);
+5. double, contiene numeri con la virgola a doppia precisione (i double, opzionalmente, termiano con la d);
+6. char, contiene caratteri singolo, per esempio 'a';
+7. boolean, contiene un valore binario che può essere **solo** vero o falso;
+
+----
+#### Control flow
+
+Il metodo per verificare una condizione binaria è l'utilizzo degli *if* ed *else* statement. La sintassi è come segue:
+```
+if (la tua condizione preferita) {
+	//Allora succede tutto quello scritto qui
+}
+else { //altrimenti
+	//tutto quello scritto qua
+}
+```
+
+Ad esempio:
+
+```
+...
+x=6;
+
+if (x>0){
+	System.out.println("x e' positivo");
+}
+else {
+	System.out.println("x e' negativo");
+}
+....
+
+OUTPUT:
+x e' potitivo
+```
+
+Nota: gli else sono opzionali.
+
+Nel caso si vogliano esplorare più possibili scelte si usa *else if* statement. Riprendendo il caso di prima:
+```
+x=6;
+
+if (x>0){
+	System.out.println("x e' positivo");
+}
+else if(x==0) {
+	System.out.println("x e' 0");
+}
+else {
+	System.out.println("x e' negativo");
+}
+....
+
+OUTPUT:
+x e' potitivo
+```
