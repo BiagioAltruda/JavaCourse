@@ -185,6 +185,32 @@ I principali tipi di variabili sono:
 6. char, contiene caratteri singolo, per esempio 'a';
 7. boolean, contiene un valore binario che può essere **solo** vero o falso;
 
+--------
+#### Strings
+Le variabili di tipo String sono trattate come degli oggetti in java.
+
+Se all'interno di una stringa vogliamo usare un carattere speciale va preceduto da un \\. Ad esempio:
+```
+String fattiELogica: "Fatti \"e\" logica";
+System.out.println("fattiELogica");
+
+OUTPUT:
+fatti "e" logica
+```
+##### Metodi comuni delle stringhe
+
+Il metodo *lenght()* dà la lunghezza della stringa.
+Il metodo toLowerCase() crea una nuova stringa da quella di partenza, di tutti caratteri minuscoli.
+Il metodo toUpperCase() crea una nuova stringa da quella di partenza, di tutti caratteri maiuscoli.
+il metodo indexOf("something") da la posizine della stringa cercata.
+
+In generale, seguono i vari metodi:
+![[Strings1.png]]
+![[Strings2.png]]
+![[Strings3.png]]
+
+
+
 ----
 #### Control flow
 
