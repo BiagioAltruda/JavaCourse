@@ -236,3 +236,22 @@ else {
 OUTPUT:
 x e' potitivo
 ```
+
+Lo *switch* statement permette di scegliere tra tanti casi diversi senza usare tanti if/else statements.
+```
+...
+switch(d){ //Dove "d" impone la condizione
+	case 1: 
+		System.out.println("uno");
+		break;
+	case 2:
+		//and so on
+	break;
+	case 3:
+		// and so forth
+	break;
+	default: //se viene inserito qualcosa di non specificato, viene invocato il caso default
+		System.out.println("Dato non valido");
+}
+...
+```
