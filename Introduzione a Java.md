@@ -281,3 +281,56 @@ switch(d){ //Dove "d" impone la condizione
 }
 ...
 ```
+
+Ci sono anche i così detti cicli, o loop. Questi permettono di eseguire più volte uno stesso blocco di codice. Tra di loro ci sono i:
+1. While loop
+2. Do While loop
+3. For loop
+
+Nel While loop la sintassi è:
+```
+...
+int = 0;
+while (i<5){
+//Blocco di istruzioni
+System.out.println(i);
+
+++i; //incremento
+
+//è FONDAMENTALE avere un istruzione che eventualmente permetterà al loop di terminare. In caso non ci fosse, il blocco di codice verrà ripetuto all'infinito.
+}
+System.out.println("il ciclo è terminato");
+
+OUTPUT:
+0
+1
+2
+3
+4
+il ciclo è terminato
+...
+```
+
+Nel Do While loop la sintassi è:
+
+```
+...
+int = 0;
+do{
+//Blocco di istruzioni
+System.out.println(i);
+++i; //incremento
+
+} while (i<5);
+System.out.println("il ciclo è terminato");
+
+OUTPUT:
+0
+1
+2
+3
+4
+il ciclo è terminato
+...
+```
+La differenza principale è che nel Do While il blocco di codice interno viene eseguito sempre *ALMENO* una volta.
