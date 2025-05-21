@@ -2,6 +2,16 @@
 share:
 ---
 
+```query
+line:"# Comandi e Nozioni di Base"
+line:"#### operazioni matematiche"
+line:"#### Richiamare un metodo"
+line:"# Error handling 101"
+line:"#### Variabili"
+line:"#### Strings"
+line:"#### Control flow"
+```
+
 # Comandi e Nozioni di Base
 
 ```
@@ -210,7 +220,6 @@ In generale, seguono i vari metodi:
 ![[Strings3.png]]
 
 
-
 ----
 #### Control flow
 
@@ -300,6 +309,7 @@ System.out.println(i);
 //è FONDAMENTALE avere un istruzione che eventualmente permetterà al loop di terminare. In caso non ci fosse, il blocco di codice verrà ripetuto all'infinito.
 }
 System.out.println("il ciclo è terminato");
+...
 
 OUTPUT:
 0
@@ -308,7 +318,6 @@ OUTPUT:
 3
 4
 il ciclo è terminato
-...
 ```
 
 Nel Do While loop la sintassi è:
@@ -323,6 +332,7 @@ System.out.println(i);
 
 } while (i<5);
 System.out.println("il ciclo è terminato");
+...
 
 OUTPUT:
 0
@@ -331,6 +341,25 @@ OUTPUT:
 3
 4
 il ciclo è terminato
-...
 ```
 La differenza principale è che nel Do While il blocco di codice interno viene eseguito sempre *ALMENO* una volta.
+
+Il For loop è un ciclo che viene usato quando sappiamo quante volte un blocco di codice fa iterato. La sintassi è:
+```
+...
+for(int i=0; i<5, i++){ //Questi 3 statement sono rispettivamente, inizializzazione, controllo condizione e
+					    //Incremento. L'incremento avviene solo all'inizio del primo ciclo, la condizione
+						//funziona come quella di un while. E l'incremento avviene alla fine di ogni
+						//iterazione
+System.out.println(i);
+}
+...
+
+OUTPUT:
+0
+1
+2
+3
+4
+```
+
