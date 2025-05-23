@@ -9,6 +9,7 @@ line:"#### Richiamare un metodo"
 line:"# Error handling 101"
 line:"#### Variabili"
 line:"#### Strings"
+line:"#### Array"
 line:"#### Control flow"
 ```
 
@@ -220,6 +221,135 @@ In generale, seguono i vari metodi:
 ![[Strings3.png]]
 
 
+---
+#### Array
+Gli array sono variabili che contengono più valori diversi valori. Per definire un'array si scrive:
+```
+String[] cars;
+```
+
+Per inserirci dei valori (*necessariamente* del tipo specificato) scriviamo:
+```
+String[] cars {"Volvo","BMW","Ford","Mazda"};
+```
+
+Gli array possono essere del tipo di ogni altra variabile, come int, float, double etc.
+
+Per accedere agli elementi di un array si gioca con l'indice in parentesi quadre.
+
+```
+...
+String[] cars {"Volvo","BMW","Ford","Mazda"};
+System.out.println(cars[0]);
+...
+
+OUTPUT:
+Volvo
+```
+
+Nota: gli indici per gli array partono da 0 e arrivano a n-1, dove n è il numero di elementi dell'array.
+
+Possiamo estrarre la lunghezza di un array con la proprietà length.
+
+```
+...
+String[] cars {"Volvo","BMW","Ford","Mazda"};
+System.out.println(cars.length);
+...
+
+OUTPUT:
+4
+```
+
+Un loop specifico per gli array è il *For-Each*:
+
+```
+...
+String[] cars {"Volvo","BMW","Ford","Mazda"};
+
+for (String i: cars){            //letteralmente: per ogni entrata i dell'array cars
+	System.out.println(cars[i]); //esegui il che segue. i e e le entrate di cars devono avere lo stesso
+}                                //tipo.
+...
+OUTPUT:
+Volvo
+BMW
+Ford
+Mazda
+```
+
+Gli array possono anche essere dichiarati vuoti, di una certa lunghezza, con la sintassi:
+```
+...
+int [] arrayVuoto = new int [10];
+...
+```
+
+
+**Array multidimensionali**
+Questi arrays, o matrici, sono array di array e permettono di gestire dati più vari, tipo tabelle.
+
+```
+...
+int [][] numbers= {{1,2,3,4},{5,6,7}};
+...
+```
+
+Questo array, essendo bidimensionale si può immaginare come tabella:
+
+| Index |       | **0** | **1** | **2** | **3** |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| i     | **0** | 1     | 2     | 3     | 4     |
+| j     | **1** | 5     | 6     | 7     |       |
+Quindi l'elemento in posizione \[0]\[1] è 5, dato che *i* indica l'indice di riga e *j* quello di colonna.
+
+si possono inserire tutti i sotto array che uno vuole, basta aggiungere altre parentesi tonde all'interno delle graffe.
+Nota: si mettono sempre 2 parentesi quadre \[]\[] per indicare un array bidimensionale qualsiasi.
+
+**Side note**:
+Anche gli array multidimensionali più complicati si possono visualizzare graficamente, con la speranza di non perdere completamente il senno, faccio l'esempio con un 3-array:
+
+```
+int [][][] numbers= {
+	{ 
+		{1,2},
+		{3,4}}
+	},
+	{
+		{5,6},
+		{7,8}
+	};
+```
+
+In questo caso gli indici sono, ad esempio, *i*, *j*, *k*. 
+
+Per accedere gli elementi bisogna specificare la posizione in entrambe le entrate:
+```
+...
+System.out.println(numbers[0][0][1]);
+...
+OUTPUT:
+2
+```
+
+Perché:
+
+**TABELLA i=0**
+
+| Index |       | **0** | **1** |
+| ----- | ----- | ----- | ----- |
+| k     | **0** | 1     | 2     |
+| k     | **1** | 3     | 4     |
+|       |       |       |       |
+
+**TABELLA i=1**
+
+| Index |       | **0** | **1** |
+| ----- | ----- | ----- | ----- |
+| j     | **0** | 5     | 6     |
+| k     | **1** | 7     | 8     |
+
+
 ----
 #### Control flow
 
@@ -362,4 +492,3 @@ OUTPUT:
 3
 4
 ```
-
