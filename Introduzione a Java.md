@@ -11,6 +11,7 @@ line:"#### Variabili"
 line:"#### Strings"
 line:"#### Array"
 line:"#### Control flow"
+line:"#### Java Method Overloading"
 ```
 
 # Comandi e Nozioni di Base
@@ -491,3 +492,88 @@ OUTPUT:
 3
 4
 ```
+
+## OOP (Object Oriented Programming)
+
+In java, tutti i vari costrutti etc, sono *metodi*. I metodi sono blocchi di codice che partono solo quando chiamati, posso accettare argomenti o parametri.
+I metodi devono essere dichiarati all'interno di una classe, la sintassi, per esempio è:
+```
+public class Main(){
+	static void myMethod(){
+	// il codice del metodo
+	}
+}
+```
+ "myMethod" è il nome del metodo.
+ static e public si chiamano modificatori di accesso.
+ void indica che il metodo non ha un valore di ritorno.
+
+Ad esempio il codice:
+
+```
+public class Main(){
+	static void myMethod(){
+		System.out.println("I just got executed! \n Now get off my lawn");
+	}
+	public static void main(String[] args){
+		myMethod();
+		}
+}
+
+OUTPUT:
+I just got executed!
+Now get off my lawn
+```
+
+Possiamo inserire all'interno di un metodo un qualunque numero di parametri separati da virgole.
+
+```
+public class Main{
+	static void myMethod(String fname)  //parametro del metodo
+	System.out.println(fname + "Refsnes");
+}
+
+public static void main(String[] args){
+	myMethod("Liam");
+	myMethod("Jenny");
+	myMethod("Anya");
+}
+OUTPUT:
+Liam Refsnes
+Jenny Refsnes
+Anya Refsnes
+```
+
+L'ordine e il tipo dei parametri è importante. Parametri in numero, tipo e ordine diverso da ciò che è dichiarato nella *firma* del metodo risulterà in un errore.
+
+Nota: Quando un parametro viene passato ad un metodo, viene chiamato *argomento*.
+
+Un metodo ha bisogno di avere nella firma o void o un tipo di variabile. Nel secondo caso, il metodo deve contenere l'istruzione **return**. 
+
+```
+public class Main{
+	static int myMethod(int x)  //parametro del metodo
+	return x+5;
+}
+
+public static void main(String[] args){
+	System.out.println(myMethod(3));
+
+OUTPUT:
+8
+```
+
+Si possono avere un qualunque numero di return in un metodo che ritorna un valore, a patto che siano in flussi diversi, ovvero non esiste il caso in cui ne viene eseguito più di uno.
+Ma comunque, qualunque sia il flusso considerato un return **deve** essere raggiunto.
+
+#### Java Method Overloading
+
+con il method overloading, più metodi possono avere lo stesso nome ma parametri diversi:
+```
+int myMethod(int x)
+float myMethod(float x)
+double myMethod(double x, double y)
+```
+non darà errore perché anche se i metodi hanno lo stesso nome, la loro firma è diversa.
+
+Il compilatore deciderà automaticamente quale metodo utilizzare in base al tipo di parametro fornito.
