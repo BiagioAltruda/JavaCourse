@@ -612,3 +612,47 @@ public static void main(String[] args){
 	}                               //che è a un'istanza della classe Main
 }
 ```
+
+##### Metodo Costruttore
+Il metodo costruttore dà un blueprint per creare un oggetto dalla classe di partenza inserendo (o no) dei parametri, in base al metodo.
+
+```java
+//Nel file Persona
+public class Persona{
+	String name;
+	int age;
+
+	public Persona (String name, int age){ //Il costruttore deve avere lo stesso nome della classe
+	this.name=name;
+	this.age=age;
+	}
+
+	public void describe(){              //Altro metodo della classe
+	System.out.println("Mi chiamo " +name+ " e ho " +age+ " anni.");
+	
+	}
+}
+
+//Nel file Main
+public class Main{
+	public static void main(String[] args){
+
+	Persona persona1= new Persona("Leonard", 48); //Invoca il metodo costruttore che prende come 
+													 //parametri una stringa e un intero
+													 //e crea un oggetto Persona con quegli attributi
+
+	Persona persona2= new Persona("Gauss", 60);
+
+	persona1.describe();                         //invoco il metodo describe() che stampa alcuni dati
+	persona2.describe();                         //degli oggetti.
+	}                                                
+
+}
+
+/*
+OUTPUT:
+Mi chiamo Euler e ho 48 anni.
+Mi chiamo Gauss e ho 60 anni.
+```
+
+la keyword "this" fa riferimento agli attributi della classe in cui viene utilizzato.
