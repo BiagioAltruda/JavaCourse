@@ -9,9 +9,12 @@ line:"#### Richiamare un metodo"
 line:"# Error handling 101"
 line:"#### Variabili"
 line:"#### Strings"
-line:"#### Array"
+line:"#### Arrays e Collections"
 line:"#### Control flow"
 line:"#### Java Method Overloading"
+line:"#### Classi e Oggetti"
+line:"#### Ereditarietà"
+line:"#### Polimorfismo"
 ```
 
 # Comandi e Nozioni di Base
@@ -223,7 +226,7 @@ In generale, seguono i vari metodi:
 
 
 ---
-#### Array
+#### Arrays e Collections
 Gli array sono variabili che contengono più valori diversi valori. Per definire un'array si scrive:
 ```java
 String[] cars;
@@ -351,6 +354,39 @@ Perché:
 | ----- | ----- | ----- | ----- |
 | j     | **0** | 5     | 6     |
 | k     | **1** | 7     | 8     |
+
+#### Collections
+Le collections sono interfacce che permettono di gestire strutture di dati più complesse di variabili primitive e arrays standard.
+
+Tra di loro ci sono gli *Array<>List*, che sono, fondamentalmente, array con lunghezza variabile.
+
+```java
+...
+ArrayList<Integer> tmp= new ArrayList<>(); \\Tra le parentesi angolari si mette il tipo delle variabili
+
+//Metodi importanti
+tmp.add(5);
+tmp.add(8);
+
+for(int num: tmp) //per iterare con un foreach
+	System.out.println(num);
+
+System.out.println();
+
+for(int i=0; i<tmp.size();i++)  //Size è la lunghezza di tmp
+	System.out.println(tmp.get(i)); //e get "prende" l'elemento alla posizione i
+...
+/*
+OUTPUT:
+5
+8
+
+5
+8
+*/
+```
+
+
 
 ----
 #### Control flow
@@ -656,3 +692,88 @@ Mi chiamo Gauss e ho 60 anni.
 ```
 
 la keyword "this" fa riferimento agli attributi della classe in cui viene utilizzato.
+
+
+#### Ereditarietà
+
+Il concetto di ereditarietà permette alle classi di "estendersi", ovvero ereditare le proprietà di un'altra classe ed aggiungere dati specifici senza modificare la classe di partenza.
+
+```java
+public class Veicoli{   //classe "padre"
+	int peso;
+	int lunghezza;
+	int largezza;
+	String marca;
+	String modello;
+
+	public void setPeso(int p){
+	self.peso = p;
+	}
+}
+
+public class Moto extends Veicoli{ //Definisce una classe figlia chiamata Moto, che eredita attributi e metodo della classe Veicoli
+
+public void inpenna(){
+	System.out.println("Whoom");
+}
+}
+
+public static void main(String[] args){
+	Moto myMoto = new Moto();
+	myMoto.setPeso(200);  //metodo ereditato
+	System.out.println(myMoto.peso);
+
+	myMoto.inpenna(); //metodo di Moto
+}
+/*
+OUTPUT:
+500
+Whoom
+*/
+```
+
+Le classi possono avere *solo* una classe padre;
+
+è possibile creare uno stesso metodo sia nella classe figlia che in quella padre. In quel caso verrà usato il metodo nella classe figlia, si dice che la classe figlia ha fatto l'*override* del metodo della classe padre.
+
+per richiamare il metodo della classe padre basta precedere la chiamata del metodo con *super.* ilTuoMeotodo().
+
+Alle classi può essere dato il modificatore *abstract*, che impedisce la creazione di un oggetto di quella specifica classe, ma è possibile creare un oggetto di una sua classe figlia. abstract può essere anche usato per modificare un metodo, obbligando le classi a fare l'override di quello specifico metodo, senza aver bisogno di creare un metodo vuoto.
+```java
+public abstract class Veicoli{ //Classe astratta non instanziabile
+	int peso;
+	int lunghezza;
+	int largezza;
+	String marca;
+	String modello;
+
+	public abstract void faiRumore(); //metodo astratto
+}
+
+public class Moto extends Veicoli{ 
+
+public void faiRumore(){  //DEVE essere incluso il meotodo che ho chiamato astratto nella classe padre
+	System.out.println("Whoom");
+	}
+}
+
+```
+
+
+Le classi possono ereditare le propietà di una sola classe padre. Per ovviare a questo problema basta *implementare* un'*interfaccia*.
+
+```java
+//Ad esempio
+
+public interface Felino{
+
+}
+
+Public class Tigre implements Felino{
+//Deve implementare tutti i metodi astratti definiti in Felino
+}
+```
+
+Le interfacce possono contenere solo metodi astratti. Si possono implementare tutte le interfacce necessarie.
+
+#### Polimorfismo
