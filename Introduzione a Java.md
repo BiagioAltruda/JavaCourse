@@ -375,6 +375,11 @@ System.out.println();
 
 for(int i=0; i<tmp.size();i++)  //Size è la lunghezza di tmp
 	System.out.println(tmp.get(i)); //e get "prende" l'elemento alla posizione i
+
+tmp.remove(0); //remove rimuove l'elemento in posizione 0 da tmp
+
+for (int i=0; i<tmp.size(); i++)
+	System.out.println(tmp.get(i));
 ...
 /*
 OUTPUT:
@@ -383,9 +388,24 @@ OUTPUT:
 
 5
 8
+
+8
 */
 ```
 
+Oltre agli ArrayList ci sono:
+1. *LinkedList*: sono liste i cui elementi "puntano" l'uno verso l'altro.
+	Le LinkedList sono molto più veloci nelle azioni di aggiunta e rimozione di elementi rispetto ad un ArrayList.
+
+2. *Queue*
+
+3. *Set*: è un insieme di elementi che non ammette duplicati, e a dispetto delle alte collections non mantiene l'ordine di inserimento
+
+4. *TreeSet*: è un set di elementi ordinati, vengono stampati in ordine numerico/alfabetico. Per stampare i dati in ordine inverso bisogna passargli (Comparator.reverseOrder()) al momento della dichiarazione
+
+5. *HashSet*:
+
+6. *Map*:
 
 
 ----
@@ -777,3 +797,38 @@ Public class Tigre implements Felino{
 Le interfacce possono contenere solo metodi astratti. Si possono implementare tutte le interfacce necessarie.
 
 #### Polimorfismo
+
+Slogan: "il padre può prendere le forme dei figli, i figli no" (bruh)
+
+è possibile creare oggetti del tipo:
+```java
+
+Veicolo v = new Auto("fiat");
+
+```
+
+dove *Auto* estende *Veicolo*.
+
+e posso chiamare tutti gli attributi e metodi specifici di Auto anche se *v* è di tipo *Veicolo*.
+E fa l'override dei metodi di Auto dove possibile.
+
+
+
+Anche se *v* è come se fosse del tipo Auto, conta comunque come tipo Veicolo quando si tratta ad esempio di arrays e liste. Invece, le sue sottoclassi non possono essere considerate come oggetti di tipo Veicolo.
+
+v è di tipo *Veicolo*
+
+array1 è un array di *Auto*
+
+array1 *NON* può contenere v.
+
+a è di tipo *Auto*
+
+array1 è un array di *Veicolo*
+
+array 2 *può* contenere a.
+
+(Si può usare il metodo instanceOf(Classe) per controllare se un oggetto appartiene alla classe giusta).
+
+#### Java Comparator e Comparable.
+
