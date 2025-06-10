@@ -727,7 +727,7 @@ public class Veicoli{   //classe "padre"
 	String modello;
 
 	public void setPeso(int p){
-	self.peso = p;
+	this.peso = p;
 	}
 }
 
