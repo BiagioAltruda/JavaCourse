@@ -189,6 +189,59 @@ In entrambi i casi il programma va in *crash*.
 
 Alternativamente il compilatore potrebbe lamentarsi con un *Warning* dicendo che ci sono metodi, variabili, classi, etc che non sono state usate. Non impedisce il funzionamento del programma, ma una revisione è fortemente suggerita.
 
+#### Try, catch, finally
+
+Le Java Exeptions sono "errori" dovuti o alla scrittura in sé del codice, oppure da input errati o inaspettati, java "thows" (lancia )una Exeption (eccezione). Gli errori ed eccezioni sono *oggetti*
+
+Per gestire queste Exeptions si usano i blocchi *try{}* e *catch{}*.
+
+```java
+...
+try{
+// Blocco di codice che potrebbe generare un'eccezione
+}
+catch (Execption e){ //Se effettivamente viene generata quest'eccezione
+//Esegui il codice scritto qui
+}
+```
+
+nelle parentesi () di catch si mette il tipo di Exeption e poi le si da un nome (generalmente e) per poterla richiamare dentro il blocco di codice.
+Seguono vari tipi di errori ed eccezioni comuni:
+
+![[Pasted image 20250611091653.png]]
+
+Seguono alcuni metodi propri delle eccezioni:
+```java
+try{
+	//Code that throws Exeptions
+}
+catch(Execpion e){
+
+System.out.println(e.getMessage()); //Stampa a schermo il messaggio di errore
+
+System.out.println(e.getStackTrace()); //Stampa il percorso che ha condotto all'errore
+
+}
+```
+
+
+il blocco *finally{}*, invece è un blocco opzionale di codice che viene eseguito a prescindere dal fatto che sia stata trovata o no un'eccezione nella sezione ``try{...}catch(...){...}``. 
+
+
+L'istruzione *throw new Exeption* invece, dice al compilatore manualmente che deve lanciare un'eccezione del tipo che possiamo decidere noi. Ad esempio:
+
+```java
+...
+int age = 16;
+if(age>18)
+	System.out.prinln("Ok");
+else
+thow new ArithmeticExeption ("Access denied. Age must be 18 or higher"); //lancierà un'eccezione di tipo ArithmeticExeption col messaggio indicato.
+...
+```
+
+
+
 ---
 #### Variabili
 I principali tipi di variabili sono:
@@ -405,7 +458,8 @@ Oltre agli ArrayList ci sono:
 
 5. *HashSet*:
 
-6. *Map*:
+6. *Map*: Le mappe sono collections costituite da una chiave ed un valore. Permettono di accedere velocemente al valori data la chiave.
+7. *TreeMap*: il meglio di TreeSet e Map, accedi ai valori attraverso una chiave, e puoi cercare le chiavi in maniera efficiente per la struttura degli alberi. Si inseriscono i valori attraverso il metodo *put(chiave, valore)*. Mentre con *get(chiave)* si recupera il valore collegato alla chiave.
 
 
 ----
