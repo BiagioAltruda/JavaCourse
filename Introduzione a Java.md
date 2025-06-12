@@ -240,6 +240,16 @@ thow new ArithmeticExeption ("Access denied. Age must be 18 or higher"); //lanci
 ...
 ```
 
+L'istruzione *throw* viene usata nei metodi che hanno nella firma *throws Exeption*, avvisando il compilatore che il seguente metodo potrebbe dare vita ad un eccezione:
+```java
+public void ageChecker(int age) throws ArithmeticExeption{ // e specifico che tipo di eccezione mi aspetto
+	if(age>18)
+		System.out.prinln("Ok");
+	else
+	thow new ArithmeticExeption ("Access denied. Age must be 18 or higher");
+}
+```
+
 
 
 ---
@@ -249,7 +259,7 @@ I principali tipi di variabili sono:
 2. int, contiene dei numeri interi, anche negativi;
 3. long, contiene numeri interi fino a 19 cifre
 4. float, contiene numeri con la virgola come 19.99f, anche negativi (i float terminano con la f);
-5. double, contiene numeri con la virgola a doppia precisione (i double, opzionalmente, termiano con la d);
+5. double, contiene numeri con la virgola a doppia precisione (i double, opzionalmente, terminano con la d);
 6. char, contiene caratteri singolo, per esempio 'a';
 7. boolean, contiene un valore binario che può essere **solo** vero o falso;
 
@@ -270,7 +280,7 @@ fatti "e" logica
 Il metodo *lenght()* dà la lunghezza della stringa.
 Il metodo toLowerCase() crea una nuova stringa da quella di partenza, di tutti caratteri minuscoli.
 Il metodo toUpperCase() crea una nuova stringa da quella di partenza, di tutti caratteri maiuscoli.
-il metodo indexOf("something") da la posizine della stringa cercata.
+il metodo indexOf("something") da la posizione della stringa cercata.
 
 In generale, seguono i vari metodi:
 ![[Strings1.png]]
@@ -884,5 +894,4 @@ array 2 *può* contenere a.
 
 (Si può usare il metodo instanceOf(Classe) per controllare se un oggetto appartiene alla classe giusta).
 
-#### Java Comparator e Comparable.
 
