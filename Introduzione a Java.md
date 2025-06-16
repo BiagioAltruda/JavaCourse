@@ -470,6 +470,7 @@ Oltre agli ArrayList ci sono:
 
 6. *Map*: Le mappe sono collections costituite da una chiave ed un valore. Permettono di accedere velocemente al valori data la chiave.
 7. *TreeMap*: il meglio di TreeSet e Map, accedi ai valori attraverso una chiave, e puoi cercare le chiavi in maniera efficiente per la struttura degli alberi. Si inseriscono i valori attraverso il metodo *put(chiave, valore)*. Mentre con *get(chiave)* si recupera il valore collegato alla chiave.
+8. *HashMap*:
 
 
 ----
