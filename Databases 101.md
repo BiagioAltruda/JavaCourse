@@ -17,6 +17,74 @@ Ci sono 2 modelli principali:
 2. Modello a *Oggetti*.
 
 
+#### Sintassi
+
+Per creare ed entrare in un database:
+```mysql
+CREATE [database_name];
+
+USE [database_name];
+```
+
+Per creare una tabella:
+```mysql
+CREATE TABLE [table_name] ([nome_attributo] [tipo_attributo], ...);
+```
+
+si possono aggiungere delle caratteristiche agli attributi, come: 
+```mysql
+CREATE TABLE [table_name] ([nome_attributo] [tipo_attributo] NOT NULL AUTO_INCREMENT PRIMARY KEY ...., ...);
+```
+
+Per aggiungere una Foreign Key, dopo aver dichiarato gli attributi della tabella:
+
+```mysql
+CREATE TABLE [table_name] (attributo1 int,
+							...
+							...
+							FOREIGN KEY (attributo1) REFERENCES [table_2](attributo2));
+```
+
+Per selezionare dei *record* da una tabella si usa un SELECT statement:
+
+```mysql
+SELECT [attributo_1],[attributo_2],...,[attributo_n] FROM [table_name];
+```
+
+Per ottenere tutti gli attributi di un record si usa *\**:
+```mysql
+SELECT * FROM [table_name];
+```
+
+L'operatore SELECT è modulare, si possono aggiungere, in maniera opzionale ma in questo ordine WHERE, ORDER BY, ASC/DESC: con la sintassi:
+```mysql
+SELECT * FROM [table_name] WHERE [attributo_1] = [qualcosa] ORDER BY [attributo_per_cui_ordinare] ASC/DESC;
+```
+
+Per aggiungere delle entrate in una tabella:
+```mysql
+INSERT INTO [table_name] ([attributo_1],[attributo_2],...[attributo_n]) VALUES ([valore_attributo1],...[valore_attributo_n]);
+```
+
+Gli attributi sono assegnati nell'ordine specificato.
+Si possono aggiungere più record per volta aggiungendo un'altra tonda dopo la prima con la stessa sintassi.
+Se non vengono inseriti gli attributi di partenza, SQL assumerà che stiano venendo assegnati tutti.
+
+Per aggiornare gli elementi di una tabella:
+
+```mysql
+UPDATE [table_name] SET [attributo_da_cambiare] = [qualcosa] WHERE [condizione];
+```
+
+**IMPORTANTE** usare sempre WHERE sia per quest'operazione che per la prossima, pena cancellazione dei dati, senza possibilità di recupero.
+
+Per eliminare un record da una tabella:
+```mysql
+DELETE FROM [table_name] WHERE [condizione];
+```
+
+
+
 #### Modello Entità-Relazione
 
 Un'*entità* è qualsiasi cosa sul quale sono raccolte informazioni.
