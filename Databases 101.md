@@ -51,7 +51,7 @@ Per selezionare dei *record* da una tabella si usa un SELECT statement:
 SELECT [attributo_1],[attributo_2],...,[attributo_n] FROM [table_name];
 ```
 
-Per ottenere tutti gli attributi di un record si usa *\**:
+Per ottenere tutti gli attributi di un record si usa \*:
 ```mysql
 SELECT * FROM [table_name];
 ```
