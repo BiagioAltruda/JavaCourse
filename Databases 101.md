@@ -83,9 +83,41 @@ Per eliminare un record da una tabella:
 DELETE FROM [table_name] WHERE [condizione];
 ```
 
+#### WHERE (condizione)
+
+Gli operatori utilizzabili sono:
+
+| Operatore                             | Esempio                         |
+| ------------------------------------- | ------------------------------- |
+| uguale: *=*                           | nome = "Giggino"                |
+| maggiore: *>*                         | età > 15                        |
+| minore: *<*                           | età < 15                        |
+| maggiore e uguale: *>=*               | anno >= 1990                    |
+| minore e uguale: *<=*                 | anno <= 1990                    |
+| diverso: *<>*                         | città <> "Livorno"              |
+| valori tra: *BETWEEN*                 | codice BETWEEN 10 AND 20        |
+| cercare un pattern: *LIKE*            |                                 |
+| cercare diversi possibili valori:*IN* | genere IN ("Horror","Commedia") |
+Le condizioni di un WHERE possono essere concatenate con gli operatori *AND* e *OR*, ad esempio:
+
+```mysql
+SELECT * FROM tabella WHERE nome = "franco" AND cognome "Novaga";
+
+--oppure
+
+SELECT * FROM tabella WHERE nome = "franco" OR id = 1;
+```
+
+Le condizioni possono essere negate con l'operatore *NOT*:
+
+```mysql
+SELECT * FROM tabella WHERE NOT città = "Livorno";
+--che schifo Livorno
+```
 
 
-#### Modello Entità-Relazione
+
+### Modello Entità-Relazione
 
 Un'*entità* è qualsiasi cosa sul quale sono raccolte informazioni.
 Gli *attributi* sono quegli oggetti che descrivono un'entità.
