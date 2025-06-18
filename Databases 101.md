@@ -179,5 +179,10 @@ Ci sono vari tipi di JOIN in sql:
 1. *INNER JOIN*: seleziona solo gli elementi per cui la condizione *ON* è vera.
 2. *LEFT (OUTER) JOIN*: seleziona tutta la tabella di sinistra più elementi per cui la condizione *ON* è vera.
 3. *RIGHT (OUTER) JOIN*: lo stesso di LEFT ma con la tabella di destra.
-4. *FULL (OUTER) JOIN*: Seleziona tutti gli elementi.
+4. *FULL (OUTER) JOIN*: Seleziona tutti gli elementi, da entrambe le tabelle, a patto che ci sia almeno un match.
+
+come mostrato in figura
+
+![[Pasted image 20250618103146.png]]
+
 
