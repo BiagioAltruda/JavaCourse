@@ -16,8 +16,22 @@ Ci sono 2 modelli principali:
 1. Modello *Entità-Relazione*;
 2. Modello a *Oggetti*.
 
+### Modello Entità-Relazione
 
-#### Sintassi
+Un'*entità* è qualsiasi cosa sul quale sono raccolte informazioni.
+Gli *attributi* sono quegli oggetti che descrivono un'entità.
+Le *Relazioni* sono oggetti che collegano le entità di un database.
+
+Tutti gli oggetti devono avere nomi unici e significativi.
+
+Il primo ci permette di usare entità (tabelle ad esempio) e relazioni, che sono i modi con cui le tabelle comunicano tra di loro, è quello che useremo principalmente.
+
+
+I dati di due tabelle diverse potrebbero essere collegati attraverso delle relazioni. Un attributo di una tabella potrebbe essere segnato come *Primary Key*, una chiave che "indicizza" in maniera unica gli elementi di una tabella, come ad esempio il numero di matricola di studenti universitari.
+
+Possiamo collegare due tabelle utilizzando una *Foreign Key*, che "punta" alla chiave primaria di un'altra tabella.
+
+#### Sintassi MySQL
 
 Per creare ed entrare in un database:
 ```mysql
@@ -45,7 +59,7 @@ CREATE TABLE [table_name] (attributo1 int,
 							FOREIGN KEY (attributo1) REFERENCES [table_2](attributo2));
 ```
 
-Per selezionare dei *record* da una tabella si usa un SELECT statement:
+Per selezionare dei *record* da una tabella si usa un *SELECT* statement:
 
 ```mysql
 SELECT [attributo_1],[attributo_2],...,[attributo_n] FROM [table_name];
@@ -56,10 +70,17 @@ Per ottenere tutti gli attributi di un record si usa \*:
 SELECT * FROM [table_name];
 ```
 
-L'operatore SELECT è modulare, si possono aggiungere, in maniera opzionale ma in questo ordine WHERE, ORDER BY, ASC/DESC: con la sintassi:
+L'operatore SELECT è *modulare*, si possono aggiungere, in maniera opzionale ma in questo ordine WHERE, ORDER BY, ASC/DESC: con la sintassi:
 ```mysql
 SELECT * FROM [table_name] WHERE [attributo_1] = [qualcosa] ORDER BY [attributo_per_cui_ordinare] ASC/DESC;
 ```
+
+A SELECT si può aggiungere l'istruzione DISTINCT per mostrare i record senza ripetizioni:
+
+```mysql
+SELECT DISTINCT [attributo_1],...,[attributo_n] FROM [table_name];
+```
+
 
 Per aggiungere delle entrate in una tabella:
 ```mysql
@@ -70,7 +91,7 @@ Gli attributi sono assegnati nell'ordine specificato.
 Si possono aggiungere più record per volta aggiungendo un'altra tonda dopo la prima con la stessa sintassi.
 Se non vengono inseriti gli attributi di partenza, SQL assumerà che stiano venendo assegnati tutti.
 
-Per aggiornare gli elementi di una tabella:
+Per aggiornare gli elementi di una tabella usare *UPDATE*:
 
 ```mysql
 UPDATE [table_name] SET [attributo_da_cambiare] = [qualcosa] WHERE [condizione];
@@ -78,9 +99,35 @@ UPDATE [table_name] SET [attributo_da_cambiare] = [qualcosa] WHERE [condizione];
 
 **IMPORTANTE** usare sempre WHERE sia per quest'operazione che per la prossima, pena cancellazione dei dati, senza possibilità di recupero.
 
-Per eliminare un record da una tabella:
+L'operatore *DELETE* si usa per eliminare un record da una tabella:
 ```mysql
 DELETE FROM [table_name] WHERE [condizione];
+```
+
+Per modificare la struttura di una tabella si usa ALTER:
+```mysql
+ALTER TABLE [table_name] ADD [column_name] [data_type]; -- per aggiungere una colonna
+
+ALTER TABLE [table_name] DROP [column_name] -- rimuove una colonna
+```
+
+L'Operatore *LIKE* è usato in combinazione con WHERE  per cercare un pattern specifico.
+Spesso si usano i caratteri *%* e *_* che indicano rispettivamente qualunque numero di quel carattere e uno solo:
+```mysql
+SELECT * FROM [table_name]
+WHERE [attributo] LIKE 'a%'; -- Cerca solo gli attributi che iniziano per 'a'
+```
+
+l'operatore *ALIAS* rinomina le colonne mostrate:
+```mysql
+SELECT [attributo1] AS [attributo_nuovo_nome] FROM [table_name];
+```
+
+si possono rinominare più colonne per volta:
+
+```mysql
+SELECT [attributo_1],...,[attributo_n]
+AS [attributo_1_nuovo_nome],...,[attributo_n_nuovo_nome] FROM [table_name];
 ```
 
 #### WHERE (condizione)
@@ -112,27 +159,25 @@ Le condizioni possono essere negate con l'operatore *NOT*:
 
 ```mysql
 SELECT * FROM tabella WHERE NOT città = "Livorno";
---che schifo Livorno
+-- L Livorno
+```
+
+#### JOIN STATEMENT
+
+I *JOIN* sono degli statement che permettono di visualizzare i dati di più tabelle contemporaneamente, associando la *PRIMARY KEY* della prima tabella alla *FOREIGN KEY* della seconda.
+
+``` mysql
+SELECT [table_1_o_2].[attributo_1],...,[table_1_o_2].[attributo_n] 
+FROM [table_1]
+INNER JOIN [table_2] -- INNER JOIN specifica solo gli elementi in comune (AND insiemistico)
+ON [table_1].[FOREIGN_KEY] = [table_2].[PRIMARY_KEY]; -- dove la FK della prima tabella è uguale alla
+													  -- PK della tabella 2
 ```
 
 
-
-### Modello Entità-Relazione
-
-Un'*entità* è qualsiasi cosa sul quale sono raccolte informazioni.
-Gli *attributi* sono quegli oggetti che descrivono un'entità.
-Le *Relazioni* sono oggetti che collegano le entità di un database.
-
-Tutti gli oggetti devono avere nomi unici e significativi.
-
-Il primo ci permette di usare entità (tabelle ad esempio) e relazioni, che sono i modi con cui le tabelle comunicano tra di loro, è quello che useremo principalmente.
-
-
-I dati di due tabelle diverse potrebbero essere collegati attraverso delle relazioni. Un attributo di una tabella potrebbe essere segnato come *Primary Key*, una chiave che "indicizza" in maniera unica gli elementi di una tabella, come ad esempio il numero di matricola di studenti universitari.
-
-Possiamo collegare due tabelle utilizzando una *Foreign Key*, che "punta" alla chiave primaria di un'altra tabella.
-
-
-#### MySql
-è un DbMs è un Database Managment System, che permette di interagire sia con i dati stessi che con i vari protocolli di sicurezza. 
+Ci sono vari tipi di JOIN in sql:
+1. *INNER JOIN*: seleziona solo gli elementi per cui la condizione *ON* è vera.
+2. *LEFT (OUTER) JOIN*: seleziona tutta la tabella di sinistra più elementi per cui la condizione *ON* è vera.
+3. *RIGHT (OUTER) JOIN*: lo stesso di LEFT ma con la tabella di destra.
+4. *FULL (OUTER) JOIN*: Seleziona tutti gli elementi.
 
