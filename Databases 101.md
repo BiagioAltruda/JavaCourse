@@ -186,3 +186,36 @@ come mostrato in figura
 ![[Pasted image 20250618103146.png]]
 
 
+#### Altri comandi
+
+Per stampare solo il minimo/massimo di un select:
+
+```mysql
+SELECT MIN([attribute]) FROM [table_name];
+
+SELECT MAX([attribute]) FROM [table_name];
+```
+
+Per ottenere il numero di apparizioni di un valore, invece:
+```mysql
+SELECT COUNT([attribute]) FROM [table_name];
+```
+
+Per sommare o fare la media tra i valori numerici di una colonna:
+
+```mysql
+SELECT SUM([attribute]) FROM [table_name];
+
+SELECT AVG([attribute]) FROM [table_name];
+```
+sum avg count
+
+*GROUP BY* raggruppa i risultati in base alle colonne. spesso si usa una funzione aggregata (quelle appena sopra):
+
+```mysql
+SELECT COUNT([attribute]) FROM [table_name] -- count è una funzione aggregata
+WHERE [condition]
+GROUP BY [column_name]
+ORDER BY [column_name]; -- potenzialmente il modo di ordinare i record all'interno dei gruppi
+```
+
