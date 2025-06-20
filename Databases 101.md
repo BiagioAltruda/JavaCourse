@@ -171,7 +171,7 @@ SELECT [table_1_o_2].[attributo_1],...,[table_1_o_2].[attributo_n]
 FROM [table_1]
 INNER JOIN [table_2] -- INNER JOIN specifica solo gli elementi in comune (AND insiemistico)
 ON [table_1].[FOREIGN_KEY] = [table_2].[PRIMARY_KEY]; -- dove la FK della prima tabella è uguale alla
-													  -- PK della tabella 2
+-- PK della tabella 2
 ```
 
 
@@ -219,3 +219,19 @@ GROUP BY [column_name]
 ORDER BY [column_name]; -- potenzialmente il modo di ordinare i record all'interno dei gruppi
 ```
 
+*HAVING* è come un WHERE ma è possibile utilizzare le funzioni aggregate come condizioni a seguito di un GROUP BY:
+```mysql
+SELECT COUNT(*) FROM [table_name]
+GROUP BY [column_name]
+HAVING COUNT(*) > 5 -- ad esempio
+```
+
+### SUB QUERIES
+Si possono scrivere queries innestate:
+```mysql
+-- LA TUA QUERY PREFERITA
+
+WHERE [attributo] = (
+-- SUB QUERY
+);
+```
