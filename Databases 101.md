@@ -226,6 +226,12 @@ GROUP BY [column_name]
 HAVING COUNT(*) > 5 -- ad esempio
 ```
 
+Il blocco SELECT INTO si usa per prendere un valore da una tabella per inserirlo in una variabile:
+```mysql
+SELECT [attributo_1] INTO [nuova_variabile] FROM [table_name] ...
+```
+Si usa di solito per salvare i dati di una query per usarli in un blocco condizionale.
+
 ### SUB QUERIES
 Si possono scrivere queries innestate:
 ```mysql
@@ -234,4 +240,47 @@ Si possono scrivere queries innestate:
 WHERE [attributo] = (
 -- SUB QUERY
 );
+```
+
+
+### Stored Procedures
+una *stored procedure* è un blocco di codice che può essere salvato e richiamato più volte. Permettono di centralizzare la logica più complessa, riducono la duplicazione del codice e migliorano le prestazioni.
+
+```mysql
+CREATE PROCEDURE `new_procedure` () -- firma
+BEGIN -- punto d'inizio della procedura
+
+END -- punto finale
+
+
+CREATE PROCEDURE `new_procedure` (IN value INT) -- esempio di valore passato
+BEGIN -- punto d'inizio della procedura
+
+END -- punto finale
+
+```
+Se invece usiamo *OUT* la procedura darà in output la variabile specificata.
+OUT va usato sempre se il valore ritornato va usato in funzioni aggregate.
+
+Per richiamare una stored procedure è:
+```mysql
+CALL my_procedure ();
+```
+Se quando chiamiamo una procedura inseriamo *@* prima del nome della variabile stiamo specificando che ci stiamo aspettando un output dalla procedura:
+```mysql
+CALL my_procedure (@value); -- mi aspetto la variabile value come valore di ritorno della procedura
+```
+
+Si possono dichiarare dei nuovi dati dentro una proceduta usando *Declare*:
+```mysql
+DECLARE my_var tinyint; -- nome + tipo di dato
+```
+
+Possono essere inclusi anche i condizionali con:
+```mysql
+IF condizione THEN
+-- blocco di codice IF
+ELSE 
+-- blocco di codice ELSE
+END IF; -- istruzione di chiusura del blocco condizionale
 ```
