@@ -284,3 +284,19 @@ ELSE
 -- blocco di codice ELSE
 END IF; -- istruzione di chiusura del blocco condizionale
 ```
+
+### Stored Function
+Vengono richiamate come qualunque altra funzione aggregata, come COUNT, SUM, etc.
+
+```mysql
+FUNCTION `function_name` ([attribute_1] [data_type_1],...) RETURNS [data_type]
+DETERMINISTIC
+BEGIN
+	RETURN ....
+END
+```
+a differenza delle stored procedures una stored function deve restituire un valore, attraverso la keyword *RETURN*, ad una stored function possiamo passare solo parametri di input.
+
+la keyword *DETERMINISTIC* specifica che il risultato ritornato non dipende da variabili esterne, come ad esempio l'ora di esecuzione della funzione, al contrario *NOT DETERMINISTIC* va specificato se ci sono fattori esterni, oltre all'input che agiscono sul funzionamento della funzione.
+
+Inoltre è obbligatorio specificare *READS SQL DATA* se la funzione contiene delle query al suo interno (ad esempio usare un SELECT).
