@@ -180,6 +180,7 @@ Ci sono vari tipi di JOIN in sql:
 2. *LEFT (OUTER) JOIN*: seleziona tutta la tabella di sinistra più elementi per cui la condizione *ON* è vera.
 3. *RIGHT (OUTER) JOIN*: lo stesso di LEFT ma con la tabella di destra.
 4. *FULL (OUTER) JOIN*: Seleziona tutti gli elementi, da entrambe le tabelle, a patto che ci sia almeno un match.
+5. *CROSS JOIN*: Seleziona il prodotto cartesiano tra le due tabelle
 
 come mostrato in figura
 
@@ -300,3 +301,63 @@ a differenza delle stored procedures una stored function deve restituire un valo
 la keyword *DETERMINISTIC* specifica che il risultato ritornato non dipende da variabili esterne, come ad esempio l'ora di esecuzione della funzione, al contrario *NOT DETERMINISTIC* va specificato se ci sono fattori esterni, oltre all'input che agiscono sul funzionamento della funzione.
 
 Inoltre è obbligatorio specificare *READS SQL DATA* se la funzione contiene delle query al suo interno (ad esempio usare un SELECT).
+
+### Trigger
+Sono oggetti simili ad una stored procedure che viene eseguito automaticamente quando si verifica un evento specifico.
+In MySQL esistono 6 tipi di triggers:
+1. BEFORE INSERT,
+2. AFTER INSERT,
+3. BEFORE UPDATE,
+4. AFTER UPDATE,
+5. BEFORE DELETE,
+6. AFTER DELETE.
+
+La sintassi è:
+```mysql
+CREATE TRIGGER [trigger_name]
+[BEFORE | AFTER] [INSERT | UPDATE | DELETE] ON [table_name]
+FOR EACH ROW
+BEGIN
+ -- istruzioni
+END
+```
+
+*OLD* e *NEW* indicano rispettivamente un record prima che venga cancellato o un nuovo record creato dal trigger.
+
+### Indici
+gli *indici* sono strutture di supporto che permettono di leggere più velocemente i dati senza dover leggere tutte le righe.
+
+```mysql
+CREATE INDEX [index_name] ON [table_name]([attributo_1],...,[attributo_n]);
+```
+
+Si può inserire *FULLTEXT* prima di INDEX per ottimizzare le ricerche testuali.
+
+Per visualizzare gli indici di una tabella:
+```mysql
+SHOW INDEX FROM [table_name];
+```
+
+Per rimuoverne uno:
+```mysql
+DROP INDEX FROM [table_name];
+```
+
+L'istruzione *EXPLAIN* verifica se un indice viene usato o no.
+```mysql
+EXPLAIN SELECT .... -- una query
+```
+
+### Viste
+Una vista è una tabella virtuale basata sul risultato di un SELECT. Non memorizza nulla ma semplifica l'accesso a query complesse.
+
+```mysql
+CREATE VIEW [view_name] AS 
+SELECT * FROM [table_name]; -- o un qualunque SELECT statement
+```
+
+Per consultarne una:
+```mysql
+SELECT * FROM [view_name];
+```
+
