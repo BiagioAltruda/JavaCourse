@@ -133,7 +133,7 @@ Il tag *select* permette crea un menù a tendina per scegliere delle opzioni:
 </form>
 ```
 
-![[Pasted image 20250701111724.png]]
+![Pasted image 20250701111724.png](Pasted image 20250701111724.png)
 
 Ne è consigliato l'utilizzo quando ci sono molte opzioni tra cui scegliere.
 
