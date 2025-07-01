@@ -133,7 +133,7 @@ Il tag *select* permette crea un menù a tendina per scegliere delle opzioni:
 </form>
 ```
 
-![Alt text](Pasted image 20250701111724.png)
+![Alt text](https://github.com/BiagioAltruda/JavaCourse/blob/main/Pasted%20image%2020250701111724.png)
 
 Ne è consigliato l'utilizzo quando ci sono molte opzioni tra cui scegliere.
 
