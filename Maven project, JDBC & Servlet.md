@@ -55,7 +55,20 @@ come in figura:
 
 ![[PomXML.png]]
 
-Salvare il *pom.xml*, tasto destro sul file poi seguire la figura:
+
+
+Salvare il *pom.xml*. 
+
+Navigare sul file *web.xml*:
+
+![[WebXML1.png]]
+
+Aprire il file e cancellare tutti i tag *servlet*, *servlet-mapping* e i loro contenuti.
+![[WebXML2.png]]
+
+Quando si crea un nuovo servlet accertarsi che maven aggiunga di nuovo questi tag.
+
+Tasto destro sul file poi seguire la figura:
 
 ![[Conf6.png]]
 
