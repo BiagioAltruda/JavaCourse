@@ -15,7 +15,7 @@ Dopo essersi assicurati di aver installato correttamente il server **Apache Tomc
 Una volta finito otterremo un progetto fatto in questa maniera:
 ![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/Conf1.png)
 
-Come prima cosa adesso, installiamo il progetto *Vendite* sul nostro server.
+Come prima cosa adesso, facciamo il *deploy* del progetto *Vendite* sul nostro server.
 Tasto destro sul server, poi *Add and Remove*:
 ![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/Conf2.png)
 
