@@ -5,11 +5,11 @@ Uno dei due principali modi con cui faremo il *deployment* delle nostre webapps 
 Dopo essersi assicurati di aver installato correttamente il server **Apache Tomcat V10.1** attraverso i *Java EE* tools procediamo con *Maven*, il build manager del progetto.
 
 1. Creare un nuovo progetto di eclipse e scegliere tra le opzioni *Maven Project*.
-![[Progetto1.png]]
+![Alt text]("https://github.com/BiagioAltruda/JavaCourse/blob/main/Progetto1.png")
 2. Premere *Next* e poi spuntare *Create a simple project (skip archetype selection)*.
-	![[Progetto2.png]]
+	![Alt text]("https://github.com/BiagioAltruda/JavaCourse/blob/main/Progetto2.png")
 3. Premere su *Next* e poi compilare i campi *Group Id*, *Artifact Id* e modificare *Packaging* da *jar* a *war*.
-	![[Progetto3.png]]
+	![Alt text]("https://github.com/BiagioAltruda/JavaCourse/blob/main/Progetto3.png")
 
 # Configurazione generale
 Una volta finito otterremo un progetto fatto in questa maniera:
