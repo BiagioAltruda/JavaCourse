@@ -183,5 +183,168 @@ Il tag *fieldset* "incapsula" il form e separare graficamente pezzi del form:
 
 ![[Pasted image 20250701111929.png]]
 
+## Liste
+Ci sono due tipi di liste principali, ordinate e non.
+```html
+...
+
+<ol>
+	<li>A</li>
+	<li>Ri</li>
+	<li>Daje</li>
+</ol>
+
+<ul>
+	<li>Tea</li>
+	<li>Coffe</li>
+	<li>Moscow Mule</li>
+</ul>
+
+
+...
+```
+
+![[Pasted image 20250702092929.png]]
+
+
+## Commenti
+
+```html
+<!--questo è un commento-->
+
+<!-- eh si
+anche multilinea
+funzia
+-->
+```
+
+## Tabelle
+Le tabelle si usano per mostrare i dati in maniera ordinata:
+
+```html
+<table style ="width:100%">
+	<tr>
+		<th>Company</th>
+		<th>Contact</th>
+		<th>Country</th>
+	</tr>
+	<tr>
+		<td>Accenture</td>
+		<td>Juan Futterkiste</td>
+		<td>Germany</td>
+	</tr>
+	<tr>
+		<td>Microsoft</td>
+		<td>Salvatore Esposito</td>
+		<td>Napule</td>
+	</tr>
+</table>
+```
+
+il tag *th* sta table heading, l'intestazione, mentre *tr* e *td* stanno per, rispettivamente, table row e table data. 
+
+![[Pasted image 20250702093704.png]]
+
+Per mostrare anche righe, colonne etc. si deve aggiungere del *CSS*, uno dei modi è quello di utilizzare il tag *style* dove definiamo le regole css:
+```html
+<style>
+table, th, td {
+	border: 2px solid black;
+}
+</style>
+```
+
+![[Pasted image 20250702094033.png]]
+
+
+Si può anche inserire uno stile *inline* aggiungendo l'attributo *style* (come nell'intestazione della tabella `<table style="width:100>`), oppure css interno inserendo il tag *style* all'interno di *head*.
+
+
+
 # CSS
-Tutta la parte grafica come colore, font, etc, viene gestito da un file *.css*.
+Tutta la parte grafica come colore, font, layout, etc, viene gestito da un file *.css*, che sta per cascading style sheet.
+Le istruzioni css si scrivono in questa maniera:
+```css
+/* btw questo è un commento 
+selettore {
+proprietà1:valore1;
+proprietà2:valore2;
+.
+.
+.
+}
+*/
+table, th, td {
+width: 100%;
+}
+```
+
+e agisce globalmente.
+Il css inline sovrascrive quello globale quando viene applicato.
+
+### Text decoration
+
+```css
+
+h1{
+	text-decoration:overline;
+}
+h2{
+	text-decoration:line-through;
+}
+h3{
+	text-decoration:underline;
+}
+p.ex{
+	text-decoration:overline underline;
+}
+```
+
+### Text spacing
+
+```css
+p{
+	text-indent:50px; /* indenta solo la prima riga*/
+}
+h1{
+	letter-spacing:5px; /* lo spazio tra le singole lettere */
+}
+h2{
+	line-height:3; /* distanza tra le righe */
+}
+h3{
+	word-spacing:5px; /* distanza tra le parole */
+}
+```
+
+### Selettori
+Sono di vario tipo, tra di loro ci sono i *simple selectors*, che permettono di selezionare elementi attraverso id, tipo e classe.
+
+```html
+
+<head>
+	<style>
+		#paral{ /* selettore dell'id paral */
+			text-align: center;
+			color: red;
+			}
+		.center { /* selettore per classe center */
+			text-align: center;
+			color: red;}
+	</style>
+</head>
+...
+<!-- ID-->
+
+<p id="paral">Hello World!</p> <!-- viene modificato dallo stile-->
+<p>Hello World!</p> <!-- non viene modificato dallo stile-->
+
+<!-- CLASS-->
+
+<p class="center"> Rosso ed al centro</p>
+<p class="center"> Rosso ed al centro di nuovo</p>
+
+...
+```
+
+Gli *id* devono essere unici, mentre le *classi* no.
