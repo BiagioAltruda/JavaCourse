@@ -61,10 +61,10 @@ Salvare il *pom.xml*.
 
 Navigare sul file *web.xml*:
 
-![[WebXML1.png]]
+![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/WebXML1.png)
 
 Aprire il file e cancellare tutti i tag *servlet*, *servlet-mapping* e i loro contenuti.
-![[WebXML2.png]]
+![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/WebXML2.png)
 
 Quando si crea un nuovo servlet accertarsi che maven aggiunga di nuovo questi tag.
 
