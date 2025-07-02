@@ -62,9 +62,8 @@ Salvare il *pom.xml*.
 Potrebbe essere che il file *web.xml*, non sia presente.
 
 ![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/WebXML1.png)
-![[WebXML1.png]]
 In questo caso, fare tasto destro sul progetto e poi *Generate Deployment Descriptor Stub*:
-![[WebStub.png]]
+![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/WebStub.png)
 
 Aprire il file e cancellare tutti i tag *servlet*, *servlet-mapping* e i loro contenuti.
 ![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/WebXML2.png)
