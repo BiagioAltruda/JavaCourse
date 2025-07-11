@@ -2,7 +2,7 @@ Uno dei due principali modi con cui faremo il *deployment* delle nostre webapps 
 
 ## Creazione progetto
 
-Dopo essersi assicurati di aver installato correttamente il server **Apache Tomcat V10.1** attraverso i *Java EE* tools procediamo con *Maven*, il build manager del progetto.
+Dopo essersi assicurati di aver installato correttamente il server **Apache Tomcat V10.1**  procediamo con *Maven*, il build manager del progetto.
 
 1. Creare un nuovo progetto di eclipse e scegliere tra le opzioni *Maven Project*.
 ![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/Progetto1.png)
@@ -78,7 +78,7 @@ Appena premuto *Maven install*, maven si occuperà di installare tutte le depend
 Questo dovrebbe essere il risultato in console.
 ![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/Conf7.png)
 
-Per controllare se effettivamente funziona tutto correttamente creiamo un *Servlet*, un intermediario tra il progetto e il server in sé, sarà il *main* del nostro progetto.
+Per controllare se effettivamente funziona tutto correttamente creiamo un *Servlet*, un intermediario tra il client (ossia la pagina html) e la nostra applicazione, sarà una specie di *main* del nostro progetto.
 
 ![not found](https://github.com/BiagioAltruda/JavaCourse/blob/main/Conf8.png)
 
@@ -107,7 +107,7 @@ Il servlet ha in partenza *3* componenti principali:
 
 Fatto questo, iniziamo a strutturare i vari package che costituiranno il progetto.
 Oltre al package *com* avremo bisogno di creare:
-1. *ctr*, metteremo qui i vari Servlet che gestiranno la nostra applicazione.
-2. *dao*, sta per *Data Access Object*, qui dentro bisognerà creare una nuova classe per ogni tabella del nostro *database*.
-3. *model*, andrà a contenere il resto dei costrutti principali, come ad esempio le classi instanziabili.
+1. *ctr*, metteremo qui i vari Servlet che gestiranno la comunicazione tra l html e i nostri dati, dao
+2. *dao*, sta per *Data Access Object*, qui dentro bisognerà creare una nuova classe per ogni tabella del nostro *database* e contiene tutti i metodi crud relativi a quella tabella.
+3. *model*, contiene le classi che rappresentano le tabelle. una classe per ogni tabella.
 
